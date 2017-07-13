@@ -23,9 +23,9 @@ namespace IdentityServer4.MongoDB
             var client = new MongoClient(option.Value.ConnectionString);
             var database = client.GetDatabase(option.Value.Database);
 
-            Client = database.GetCollection<Client>(option.Value.Client.CollectionName);
-            ApiResource = database.GetCollection<ApiResource>(option.Value.ApiResource.CollectionName);
-            IdentityResource = database.GetCollection<IdentityResource>(option.Value.IdentityResource.CollectionName);
+            Client = database.GetCollection<ConfigObject>(option.Value.Client.CollectionName).OfType<Client>();
+            ApiResource = database.GetCollection<ConfigObject>(option.Value.ApiResource.CollectionName).OfType<ApiResource>();
+            IdentityResource = database.GetCollection<ConfigObject>(option.Value.IdentityResource.CollectionName).OfType<IdentityResource>();
         }
 
         public IMongoCollection<ApiResource> ApiResource { get; private set; }

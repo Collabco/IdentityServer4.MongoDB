@@ -1,10 +1,11 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IdentityServer4.MongoDB.Models
 {
-    public class IdentityResource
+    public class IdentityResource : ConfigObject
     {
         public IdentityResource()
         {
@@ -21,7 +22,7 @@ namespace IdentityServer4.MongoDB.Models
         public string DisplayName { get; set; }
         public bool Emphasize { get; set; }
         public bool Enabled { get; set; } = true;
-        public ObjectId Id { get; set; }
+        [BsonId]
         public string Name { get; set; }
         public bool Required { get; set; }
         public bool ShowInDiscoveryDocument { get; set; } = true;

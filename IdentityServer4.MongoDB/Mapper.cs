@@ -110,7 +110,7 @@ namespace IdentityServer4.MongoDB
                 RedirectUris = client.RedirectUris,
                 RefreshTokenExpiration = (TokenExpiration)client.RefreshTokenExpiration,
                 RefreshTokenUsage = (TokenUsage)client.RefreshTokenUsage,
-                RequireClientSecret = client.RequireClientSecret
+                RequireClientSecret = client.RequireClientSecret                
             };
         }
 

@@ -1,10 +1,11 @@
 ﻿using global::MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace IdentityServer4.MongoDB.Models
 {
-    public class ApiResource
+    public class ApiResource : ConfigObject
     {
         public ApiResource()
         {
@@ -20,7 +21,8 @@ namespace IdentityServer4.MongoDB.Models
         public string Description { get; set; }
         public string DisplayName { get; set; }
         public bool Enabled { get; set; } = true;
-        public ObjectId Id { get; set; }
+
+        [BsonId]
         public string Name { get; set; }
         public List<ApiScope> Scopes { get; set; }
         public List<ApiSecret> Secrets { get; set; }

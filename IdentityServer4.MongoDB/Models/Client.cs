@@ -1,12 +1,17 @@
 ﻿using IdentityServer4.Models;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 using static IdentityServer4.IdentityServerConstants;
 
 namespace IdentityServer4.MongoDB.Models
 {
-    public class Client
+    public class Client : ConfigObject
     {
+        public Client()
+        {
+        }
+        
         public int AbsoluteRefreshTokenLifetime { get; set; } = 2592000;
         public int AccessTokenLifetime { get; set; } = 3600;
         public int AccessTokenType { get; set; } = (int)0;
@@ -21,16 +26,14 @@ namespace IdentityServer4.MongoDB.Models
         public bool AlwaysSendClientClaims { get; set; }
         public int AuthorizationCodeLifetime { get; set; } = 300;
         public List<ClientClaim> Claims { get; set; }
+        [BsonId]
         public string ClientId { get; set; }
         public string ClientName { get; set; }
         public List<ClientSecret> ClientSecrets { get; set; }
         public string ClientUri { get; set; }
         public bool Enabled { get; set; } = true;
-
         // AccessTokenType.Jwt;
         public bool EnableLocalLogin { get; set; } = true;
-
-        public ObjectId Id { get; set; }
         public List<string> IdentityProviderRestrictions { get; set; }
         public int IdentityTokenLifetime { get; set; } = 300;
         public bool IncludeJwtId { get; set; }
