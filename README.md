@@ -2,7 +2,7 @@
 
 Identity store using MongoDB
 
-[![m1chael-dg MyGet Build Status](https://www.myget.org/BuildSource/Badge/m1chael-dg?identifier=86defe33-6d5c-48a3-a72b-12b8ffb828bc)](https://www.myget.org/)
+[![Build status](https://ci.appveyor.com/api/projects/status/y90w6m5e0rdy0n8o?svg=true)](https://ci.appveyor.com/project/collabco/identityserver4-mongodb)
 
 
 ### IIdentityServerBuilder extensions:
