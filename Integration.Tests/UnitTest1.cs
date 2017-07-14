@@ -15,7 +15,7 @@ namespace Integration.Tests
         [TestMethod]
         public async Task TestCreate()
         {
-            var op = new ConfigurationDBOption {  ConnectionString = "mongodb://admin:7j3Z5w5rdf2MGVyG@myday-dev-shard-00-00-iqy12.mongodb.net:27017,myday-dev-shard-00-01-iqy12.mongodb.net:27017,myday-dev-shard-00-02-iqy12.mongodb.net:27017/?ssl=true&replicaSet=myday-dev-shard-0&authSource=admin", Database = "IS4"};
+            var op = new ConfigurationDBOption {  ConnectionString = "<<MONGO connection string here>>", Database = "IS4"};
             op.ApiResource.CollectionName = "Configuration";
             op.Client.CollectionName = "Configuration";
             op.IdentityResource.CollectionName = "Configuration";
