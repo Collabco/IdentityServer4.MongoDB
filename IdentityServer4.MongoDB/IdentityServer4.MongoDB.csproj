@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <Version>1.0.1</Version>
-    <PackageId>IdentityServer4.MongoDB</PackageId>
+    <PackageId>Collabco.IdentityServer4.MongoDB</PackageId>
     <PackageTags>IdentityServer4;MongoDB</PackageTags>
     <RepositoryUrl>https://github.com/Collabco/IdentityServer4.MongoDB</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
