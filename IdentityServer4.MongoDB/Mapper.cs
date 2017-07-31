@@ -1,4 +1,5 @@
 ﻿using IdentityServer4.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
@@ -14,8 +15,8 @@ namespace IdentityServer4.MongoDB
                 AccessTokenLifetime = client.AbsoluteRefreshTokenLifetime,
                 AccessTokenType = (int)client.AccessTokenType,
                 AllowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
-                AllowedCorsOrigins = client.AllowedCorsOrigins.ToList(),
-                AllowedGrantTypes = client.AllowedGrantTypes.ToList(),
+                AllowedCorsOrigins = client.AllowedCorsOrigins?.ToList(),
+                AllowedGrantTypes = client.AllowedGrantTypes?.ToList(),
                 AllowedScopes = client.AllowedScopes.ToList(),
                 AllowOfflineAccess = client.AllowOfflineAccess,
                 AllowPlainTextPkce = client.AllowPlainTextPkce,
@@ -23,12 +24,12 @@ namespace IdentityServer4.MongoDB
                 AlwaysIncludeUserClaimsInIdToken = client.AlwaysIncludeUserClaimsInIdToken,
                 AlwaysSendClientClaims = client.AlwaysSendClientClaims,
                 AuthorizationCodeLifetime = client.AuthorizationCodeLifetime,
-                Claims = client.Claims
+                Claims = client.Claims?
                             .Select(c => new Models.ClientClaim(c.Type, c.Value))
                             .ToList(),
                 ClientId = client.ClientId,
                 ClientName = client.ClientName,
-                ClientSecrets = client.ClientSecrets
+                ClientSecrets = client.ClientSecrets?
                             .Select(c => new Models.ClientSecret
                             {
                                 Description = c.Description,
@@ -40,20 +41,20 @@ namespace IdentityServer4.MongoDB
                 ClientUri = client.ClientUri,
                 Enabled = client.Enabled,
                 EnableLocalLogin = client.EnableLocalLogin,
-                IdentityProviderRestrictions = client.IdentityProviderRestrictions.ToList(),
+                IdentityProviderRestrictions = client.IdentityProviderRestrictions?.ToList(),
                 IdentityTokenLifetime = client.IdentityTokenLifetime,
                 IncludeJwtId = client.IncludeJwtId,
                 LogoUri = client.LogoUri,
                 LogoutSessionRequired = client.LogoutSessionRequired,
                 LogoutUri = client.LogoutUri,
-                PostLogoutRedirectUris = client.PostLogoutRedirectUris.ToList(),
+                PostLogoutRedirectUris = client.PostLogoutRedirectUris?.ToList(),
                 ProtocolType = client.ProtocolType,
                 PrefixClientClaims = client.PrefixClientClaims,
                 UpdateAccessTokenClaimsOnRefresh = client.UpdateAccessTokenClaimsOnRefresh,
                 SlidingRefreshTokenLifetime = client.SlidingRefreshTokenLifetime,
                 RequirePkce = client.RequirePkce,
                 RequireConsent = client.RequirePkce,
-                RedirectUris = client.RedirectUris.ToList(),
+                RedirectUris = client.RedirectUris?.ToList(),
                 RefreshTokenExpiration = (int)client.RefreshTokenExpiration,
                 RefreshTokenUsage = (int)client.RefreshTokenUsage,
                 RequireClientSecret = client.RequireClientSecret
@@ -77,12 +78,12 @@ namespace IdentityServer4.MongoDB
                 AlwaysIncludeUserClaimsInIdToken = client.AlwaysIncludeUserClaimsInIdToken,
                 AlwaysSendClientClaims = client.AlwaysSendClientClaims,
                 AuthorizationCodeLifetime = client.AuthorizationCodeLifetime,
-                Claims = client.Claims
+                Claims = client.Claims?
                             .Select(c => new Claim(c.Type, c.Value))
-                            .ToList(),
+                            .ToList() ?? new List<Claim>(),
                 ClientId = client.ClientId,
                 ClientName = client.ClientName,
-                ClientSecrets = client.ClientSecrets
+                ClientSecrets = client.ClientSecrets?
                             .Select(c => new Secret
                             {
                                 Description = c.Description,
@@ -118,7 +119,7 @@ namespace IdentityServer4.MongoDB
         {
             return new Models.ApiResource(model.Name, model.DisplayName, model.UserClaims)
             {
-                Secrets = model?.ApiSecrets
+                Secrets = model.ApiSecrets?
                                .Select(c => new Models.ApiSecret
                                {
                                    Type = c.Type,
@@ -129,7 +130,7 @@ namespace IdentityServer4.MongoDB
                                .ToList(),
                 Enabled = model.Enabled,
                 Description = model.Description,
-                Scopes = model?.Scopes
+                Scopes = model.Scopes?
                            .Select(c => new Models.ApiScope
                            {
                                Description = c.Description,
@@ -160,7 +161,7 @@ namespace IdentityServer4.MongoDB
         {
             return new ApiResource(model.Name, model.DisplayName, model.UserClaims)
             {
-                ApiSecrets = model?.Secrets
+                ApiSecrets = model.Secrets?
                                 .Select(c => new Secret(c.Value, c.Description, c.Expiration)
                                 {
                                     Type = c.Type
@@ -168,7 +169,7 @@ namespace IdentityServer4.MongoDB
                                 .ToList(),
                 Enabled = model.Enabled,
                 Description = model.Description,
-                Scopes = model?.Scopes
+                Scopes = model.Scopes?
                             .Select(c => new Scope
                             {
                                 Description = c.Description,
