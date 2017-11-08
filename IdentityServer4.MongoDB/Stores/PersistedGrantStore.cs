@@ -32,6 +32,11 @@ namespace IdentityServer4.MongoDB.Stores
 
             var record = await _dbContext.PersistedGrant.Find(filter).FirstOrDefaultAsync();
 
+            if(record == null)
+            {
+                return null;
+            }
+
             return Map(record);
         }
 

@@ -23,7 +23,7 @@ namespace IdentityServer4.MongoDB.Stores
 
             var found = await _dbContext.ApiResource.Find(filter).SingleOrDefaultAsync();
 
-            return found.ToModel();
+            return found?.ToModel();
         }
 
         public async Task<IEnumerable<ApiResource>> FindApiResourcesByScopeAsync(IEnumerable<string> scopeNames)

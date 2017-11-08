@@ -1,4 +1,5 @@
 ﻿using IdentityServer4.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -9,6 +10,11 @@ namespace IdentityServer4.MongoDB
     {
         public static Models.Client ToEntity(this Client client)
         {
+            if (client == null)
+            {
+                throw new ArgumentNullException(nameof(client));
+            }
+
             return new Models.Client
             {
                 AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
@@ -63,6 +69,11 @@ namespace IdentityServer4.MongoDB
 
         public static Client ToModel(this Models.Client client)
         {
+            if(client == null)
+            {
+                throw new ArgumentNullException(nameof(client));
+            }
+
             return new Client
             {
                 AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
@@ -117,6 +128,11 @@ namespace IdentityServer4.MongoDB
 
         public static Models.ApiResource ToEntity(this ApiResource model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             return new Models.ApiResource(model.Name, model.DisplayName, model.UserClaims)
             {
                 Secrets = model.ApiSecrets?
@@ -147,6 +163,11 @@ namespace IdentityServer4.MongoDB
 
         public static Models.IdentityResource ToEntity(this IdentityResource model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             return new Models.IdentityResource(model.Name, model.DisplayName, model.UserClaims)
             {
                 Enabled = model.Enabled,
@@ -159,6 +180,11 @@ namespace IdentityServer4.MongoDB
 
         public static ApiResource ToModel(this Models.ApiResource model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             return new ApiResource(model.Name, model.DisplayName, model.UserClaims)
             {
                 ApiSecrets = model.Secrets?
@@ -186,6 +212,11 @@ namespace IdentityServer4.MongoDB
 
         public static IdentityResource ToModel(this Models.IdentityResource model)
         {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             return new IdentityResource(model.Name, model.DisplayName, model.UserClaims)
             {
                 Enabled = model.Enabled,
