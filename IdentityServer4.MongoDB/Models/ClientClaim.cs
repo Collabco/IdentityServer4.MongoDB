@@ -8,11 +8,11 @@
         }
         public ClientClaim(string type, string value)
         {
-            Type = type;
-            Value = value;
+            this.type = type;
+            this.value = value;
         }
 
-        public string Type { get; set; }
-        public string Value { get; set; }
+        public string type { get; set; }
+        public string value { get; set; }
     }
 }

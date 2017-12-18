@@ -70,9 +70,9 @@ namespace Integration.Tests
             {
                 try
                 {
-                    await context.Client.DeleteOneAsync(Builders<Client>.Filter.Eq(c => c.ClientId, "Client1"));
-                    await context.Client.DeleteOneAsync(Builders<Client>.Filter.Eq(c => c.ClientId, "Client2"));
-                    await context.ApiResource.DeleteOneAsync(Builders<ApiResource>.Filter.Eq(api => api.Name, "123"));
+                    await context.Client.DeleteOneAsync(Builders<Client>.Filter.Eq(c => c.clientId, "Client1"));
+                    await context.Client.DeleteOneAsync(Builders<Client>.Filter.Eq(c => c.clientId, "Client2"));
+                    await context.ApiResource.DeleteOneAsync(Builders<ApiResource>.Filter.Eq(api => api.name, "123"));
                 }
                 catch { }
             }

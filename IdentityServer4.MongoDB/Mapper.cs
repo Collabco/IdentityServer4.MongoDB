@@ -17,53 +17,53 @@ namespace IdentityServer4.MongoDB
 
             return new Models.Client
             {
-                AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
-                AccessTokenLifetime = client.AbsoluteRefreshTokenLifetime,
-                AccessTokenType = (int)client.AccessTokenType,
-                AllowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
-                AllowedCorsOrigins = client.AllowedCorsOrigins?.ToList(),
-                AllowedGrantTypes = client.AllowedGrantTypes?.ToList(),
-                AllowedScopes = client.AllowedScopes.ToList(),
-                AllowOfflineAccess = client.AllowOfflineAccess,
-                AllowPlainTextPkce = client.AllowPlainTextPkce,
-                AllowRememberConsent = client.AllowRememberConsent,
-                AlwaysIncludeUserClaimsInIdToken = client.AlwaysIncludeUserClaimsInIdToken,
-                AlwaysSendClientClaims = client.AlwaysSendClientClaims,
-                AuthorizationCodeLifetime = client.AuthorizationCodeLifetime,
-                Claims = client.Claims?
+                absoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
+                accessTokenLifetime = client.AbsoluteRefreshTokenLifetime,
+                accessTokenType = (int)client.AccessTokenType,
+                allowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
+                allowedCorsOrigins = client.AllowedCorsOrigins?.ToList(),
+                allowedGrantTypes = client.AllowedGrantTypes?.ToList(),
+                allowedScopes = client.AllowedScopes.ToList(),
+                allowOfflineAccess = client.AllowOfflineAccess,
+                allowPlainTextPkce = client.AllowPlainTextPkce,
+                allowRememberConsent = client.AllowRememberConsent,
+                alwaysIncludeUserClaimsInIdToken = client.AlwaysIncludeUserClaimsInIdToken,
+                alwaysSendClientClaims = client.AlwaysSendClientClaims,
+                authorizationCodeLifetime = client.AuthorizationCodeLifetime,
+                claims = client.Claims?
                             .Select(c => new Models.ClientClaim(c.Type, c.Value))
                             .ToList(),
-                ClientId = client.ClientId,
-                ClientName = client.ClientName,
-                ClientSecrets = client.ClientSecrets?
+                clientId = client.ClientId,
+                clientName = client.ClientName,
+                clientSecrets = client.ClientSecrets?
                             .Select(c => new Models.ClientSecret
                             {
-                                Description = c.Description,
-                                Expiration = c.Expiration,
-                                Type = c.Type,
-                                Value = c.Value
+                                description = c.Description,
+                                expiration = c.Expiration,
+                                type = c.Type,
+                                value = c.Value
                             })
                             .ToList(),
-                ClientUri = client.ClientUri,
-                Enabled = client.Enabled,
-                EnableLocalLogin = client.EnableLocalLogin,
-                IdentityProviderRestrictions = client.IdentityProviderRestrictions?.ToList(),
-                IdentityTokenLifetime = client.IdentityTokenLifetime,
-                IncludeJwtId = client.IncludeJwtId,
-                LogoUri = client.LogoUri,
-                LogoutSessionRequired = client.LogoutSessionRequired,
-                LogoutUri = client.LogoutUri,
-                PostLogoutRedirectUris = client.PostLogoutRedirectUris?.ToList(),
-                ProtocolType = client.ProtocolType,
-                PrefixClientClaims = client.PrefixClientClaims,
-                UpdateAccessTokenClaimsOnRefresh = client.UpdateAccessTokenClaimsOnRefresh,
-                SlidingRefreshTokenLifetime = client.SlidingRefreshTokenLifetime,
-                RequirePkce = client.RequirePkce,
-                RequireConsent = client.RequirePkce,
-                RedirectUris = client.RedirectUris?.ToList(),
+                clientUri = client.ClientUri,
+                enabled = client.Enabled,
+                enableLocalLogin = client.EnableLocalLogin,
+                identityProviderRestrictions = client.IdentityProviderRestrictions?.ToList(),
+                identityTokenLifetime = client.IdentityTokenLifetime,
+                includeJwtId = client.IncludeJwtId,
+                logoUri = client.LogoUri,
+                logoutSessionRequired = client.LogoutSessionRequired,
+                logoutUri = client.LogoutUri,
+                postLogoutRedirectUris = client.PostLogoutRedirectUris?.ToList(),
+                protocolType = client.ProtocolType,
+                prefixClientClaims = client.PrefixClientClaims,
+                updateAccessTokenClaimsOnRefresh = client.UpdateAccessTokenClaimsOnRefresh,
+                slidingRefreshTokenLifetime = client.SlidingRefreshTokenLifetime,
+                requirePkce = client.RequirePkce,
+                requireConsent = client.RequirePkce,
+                redirectUris = client.RedirectUris?.ToList(),
                 RefreshTokenExpiration = (int)client.RefreshTokenExpiration,
-                RefreshTokenUsage = (int)client.RefreshTokenUsage,
-                RequireClientSecret = client.RequireClientSecret
+                refreshTokenUsage = (int)client.RefreshTokenUsage,
+                requireClientSecret = client.RequireClientSecret
             };
         }
 
@@ -76,53 +76,53 @@ namespace IdentityServer4.MongoDB
 
             return new Client
             {
-                AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
-                AccessTokenLifetime = client.AbsoluteRefreshTokenLifetime,
-                AccessTokenType = (AccessTokenType)client.AccessTokenType,
-                AllowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
-                AllowedCorsOrigins = client.AllowedCorsOrigins,
-                AllowedGrantTypes = client.AllowedGrantTypes,
-                AllowedScopes = client.AllowedScopes,
-                AllowOfflineAccess = client.AllowOfflineAccess,
-                AllowPlainTextPkce = client.AllowPlainTextPkce,
-                AllowRememberConsent = client.AllowRememberConsent,
-                AlwaysIncludeUserClaimsInIdToken = client.AlwaysIncludeUserClaimsInIdToken,
-                AlwaysSendClientClaims = client.AlwaysSendClientClaims,
-                AuthorizationCodeLifetime = client.AuthorizationCodeLifetime,
-                Claims = client.Claims?
-                            .Select(c => new Claim(c.Type, c.Value))
+                AbsoluteRefreshTokenLifetime = client.absoluteRefreshTokenLifetime,
+                AccessTokenLifetime = client.absoluteRefreshTokenLifetime,
+                AccessTokenType = (AccessTokenType)client.accessTokenType,
+                AllowAccessTokensViaBrowser = client.allowAccessTokensViaBrowser,
+                AllowedCorsOrigins = client.allowedCorsOrigins,
+                AllowedGrantTypes = client.allowedGrantTypes,
+                AllowedScopes = client.allowedScopes,
+                AllowOfflineAccess = client.allowOfflineAccess,
+                AllowPlainTextPkce = client.allowPlainTextPkce,
+                AllowRememberConsent = client.allowRememberConsent,
+                AlwaysIncludeUserClaimsInIdToken = client.alwaysIncludeUserClaimsInIdToken,
+                AlwaysSendClientClaims = client.alwaysSendClientClaims,
+                AuthorizationCodeLifetime = client.authorizationCodeLifetime,
+                Claims = client.claims?
+                            .Select(c => new Claim(c.type, c.value))
                             .ToList() ?? new List<Claim>(),
-                ClientId = client.ClientId,
-                ClientName = client.ClientName,
-                ClientSecrets = client.ClientSecrets?
+                ClientId = client.clientId,
+                ClientName = client.clientName,
+                ClientSecrets = client.clientSecrets?
                             .Select(c => new Secret
                             {
-                                Description = c.Description,
-                                Expiration = c.Expiration,
-                                Type = c.Type,
-                                Value = c.Value
+                                Description = c.description,
+                                Expiration = c.expiration,
+                                Type = c.type,
+                                Value = c.value
                             })
                             .ToList(),
-                ClientUri = client.ClientUri,
-                Enabled = client.Enabled,
-                EnableLocalLogin = client.EnableLocalLogin,
-                IdentityProviderRestrictions = client.IdentityProviderRestrictions,
-                IdentityTokenLifetime = client.IdentityTokenLifetime,
-                IncludeJwtId = client.IncludeJwtId,
-                LogoUri = client.LogoUri,
-                LogoutSessionRequired = client.LogoutSessionRequired,
-                LogoutUri = client.LogoutUri,
-                PostLogoutRedirectUris = client.PostLogoutRedirectUris,
-                ProtocolType = client.ProtocolType,
-                PrefixClientClaims = client.PrefixClientClaims,
-                UpdateAccessTokenClaimsOnRefresh = client.UpdateAccessTokenClaimsOnRefresh,
-                SlidingRefreshTokenLifetime = client.SlidingRefreshTokenLifetime,
-                RequirePkce = client.RequirePkce,
-                RequireConsent = client.RequirePkce,
-                RedirectUris = client.RedirectUris,
+                ClientUri = client.clientUri,
+                Enabled = client.enabled,
+                EnableLocalLogin = client.enableLocalLogin,
+                IdentityProviderRestrictions = client.identityProviderRestrictions,
+                IdentityTokenLifetime = client.identityTokenLifetime,
+                IncludeJwtId = client.includeJwtId,
+                LogoUri = client.logoUri,
+                LogoutSessionRequired = client.logoutSessionRequired,
+                LogoutUri = client.logoutUri,
+                PostLogoutRedirectUris = client.postLogoutRedirectUris,
+                ProtocolType = client.protocolType,
+                PrefixClientClaims = client.prefixClientClaims,
+                UpdateAccessTokenClaimsOnRefresh = client.updateAccessTokenClaimsOnRefresh,
+                SlidingRefreshTokenLifetime = client.slidingRefreshTokenLifetime,
+                RequirePkce = client.requirePkce,
+                RequireConsent = client.requirePkce,
+                RedirectUris = client.redirectUris,
                 RefreshTokenExpiration = (TokenExpiration)client.RefreshTokenExpiration,
-                RefreshTokenUsage = (TokenUsage)client.RefreshTokenUsage,
-                RequireClientSecret = client.RequireClientSecret                
+                RefreshTokenUsage = (TokenUsage)client.refreshTokenUsage,
+                RequireClientSecret = client.requireClientSecret                
             };
         }
 
@@ -135,27 +135,27 @@ namespace IdentityServer4.MongoDB
 
             return new Models.ApiResource(model.Name, model.DisplayName, model.UserClaims)
             {
-                Secrets = model.ApiSecrets?
+                secrets = model.ApiSecrets?
                                .Select(c => new Models.ApiSecret
                                {
-                                   Type = c.Type,
-                                   Value = c.Value,
-                                   Description = c.Description,
-                                   Expiration = c.Expiration
+                                   type = c.Type,
+                                   value = c.Value,
+                                   description = c.Description,
+                                   expiration = c.Expiration
                                })
                                .ToList(),
-                Enabled = model.Enabled,
-                Description = model.Description,
-                Scopes = model.Scopes?
+                enabled = model.Enabled,
+                description = model.Description,
+                scopes = model.Scopes?
                            .Select(c => new Models.ApiScope
                            {
-                               Description = c.Description,
-                               DisplayName = c.DisplayName,
-                               Emphasize = c.Emphasize,
-                               Name = c.Name,
-                               UserClaims = c.UserClaims.ToList(),
-                               Required = c.Required,
-                               ShowInDiscoveryDocument = c.ShowInDiscoveryDocument
+                               description = c.Description,
+                               displayName = c.DisplayName,
+                               emphasize = c.Emphasize,
+                               name = c.Name,
+                               userClaims = c.UserClaims.ToList(),
+                               required = c.Required,
+                               showInDiscoveryDocument = c.ShowInDiscoveryDocument
                            })
                            .ToList()
             };
@@ -170,11 +170,11 @@ namespace IdentityServer4.MongoDB
 
             return new Models.IdentityResource(model.Name, model.DisplayName, model.UserClaims)
             {
-                Enabled = model.Enabled,
-                Description = model.Description,
-                Required = model.Required,
-                Emphasize = model.Emphasize,
-                ShowInDiscoveryDocument = model.ShowInDiscoveryDocument
+                enabled = model.Enabled,
+                description = model.Description,
+                required = model.Required,
+                emphasize = model.Emphasize,
+                showInDiscoveryDocument = model.ShowInDiscoveryDocument
             };
         }
 
@@ -185,26 +185,26 @@ namespace IdentityServer4.MongoDB
                 throw new ArgumentNullException(nameof(model));
             }
 
-            return new ApiResource(model.Name, model.DisplayName, model.UserClaims)
+            return new ApiResource(model.name, model.displayName, model.userClaims)
             {
-                ApiSecrets = model.Secrets?
-                                .Select(c => new Secret(c.Value, c.Description, c.Expiration)
+                ApiSecrets = model.secrets?
+                                .Select(c => new Secret(c.value, c.description, c.expiration)
                                 {
-                                    Type = c.Type
+                                    Type = c.type
                                 })
                                 .ToList(),
-                Enabled = model.Enabled,
-                Description = model.Description,
-                Scopes = model.Scopes?
+                Enabled = model.enabled,
+                Description = model.description,
+                Scopes = model.scopes?
                             .Select(c => new Scope
                             {
-                                Description = c.Description,
-                                DisplayName = c.DisplayName,
-                                Emphasize = c.Emphasize,
-                                Name = c.Name,
-                                UserClaims = c.UserClaims,
-                                Required = c.Required,
-                                ShowInDiscoveryDocument = c.ShowInDiscoveryDocument
+                                Description = c.description,
+                                DisplayName = c.displayName,
+                                Emphasize = c.emphasize,
+                                Name = c.name,
+                                UserClaims = c.userClaims,
+                                Required = c.required,
+                                ShowInDiscoveryDocument = c.showInDiscoveryDocument
                             })
                             .ToList()
             };
@@ -217,13 +217,13 @@ namespace IdentityServer4.MongoDB
                 throw new ArgumentNullException(nameof(model));
             }
 
-            return new IdentityResource(model.Name, model.DisplayName, model.UserClaims)
+            return new IdentityResource(model.name, model.displayName, model.userClaims)
             {
-                Enabled = model.Enabled,
-                Description = model.Description,
-                Required = model.Required,
-                Emphasize = model.Emphasize,
-                ShowInDiscoveryDocument = model.ShowInDiscoveryDocument
+                Enabled = model.enabled,
+                Description = model.description,
+                Required = model.required,
+                Emphasize = model.emphasize,
+                ShowInDiscoveryDocument = model.showInDiscoveryDocument
             };
         }
 

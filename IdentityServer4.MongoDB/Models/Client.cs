@@ -12,44 +12,44 @@ namespace IdentityServer4.MongoDB.Models
         {
         }
         
-        public int AbsoluteRefreshTokenLifetime { get; set; } = 2592000;
-        public int AccessTokenLifetime { get; set; } = 3600;
-        public int AccessTokenType { get; set; } = (int)0;
-        public bool AllowAccessTokensViaBrowser { get; set; }
-        public List<string> AllowedCorsOrigins { get; set; }
-        public List<string> AllowedGrantTypes { get; set; }
-        public List<string> AllowedScopes { get; set; }
-        public bool AllowOfflineAccess { get; set; }
-        public bool AllowPlainTextPkce { get; set; }
-        public bool AllowRememberConsent { get; set; } = true;
-        public bool AlwaysIncludeUserClaimsInIdToken { get; set; }
-        public bool AlwaysSendClientClaims { get; set; }
-        public int AuthorizationCodeLifetime { get; set; } = 300;
-        public List<ClientClaim> Claims { get; set; }
+        public int absoluteRefreshTokenLifetime { get; set; } = 2592000;
+        public int accessTokenLifetime { get; set; } = 3600;
+        public int accessTokenType { get; set; } = (int)0;
+        public bool allowAccessTokensViaBrowser { get; set; }
+        public List<string> allowedCorsOrigins { get; set; }
+        public List<string> allowedGrantTypes { get; set; }
+        public List<string> allowedScopes { get; set; }
+        public bool allowOfflineAccess { get; set; }
+        public bool allowPlainTextPkce { get; set; }
+        public bool allowRememberConsent { get; set; } = true;
+        public bool alwaysIncludeUserClaimsInIdToken { get; set; }
+        public bool alwaysSendClientClaims { get; set; }
+        public int authorizationCodeLifetime { get; set; } = 300;
+        public List<ClientClaim> claims { get; set; }
         [BsonId]
-        public string ClientId { get; set; }
-        public string ClientName { get; set; }
-        public List<ClientSecret> ClientSecrets { get; set; }
-        public string ClientUri { get; set; }
-        public bool Enabled { get; set; } = true;
+        public string clientId { get; set; }
+        public string clientName { get; set; }
+        public List<ClientSecret> clientSecrets { get; set; }
+        public string clientUri { get; set; }
+        public bool enabled { get; set; } = true;
         // AccessTokenType.Jwt;
-        public bool EnableLocalLogin { get; set; } = true;
-        public List<string> IdentityProviderRestrictions { get; set; }
-        public int IdentityTokenLifetime { get; set; } = 300;
-        public bool IncludeJwtId { get; set; }
-        public string LogoUri { get; set; }
-        public bool LogoutSessionRequired { get; set; } = true;
-        public string LogoutUri { get; set; }
-        public List<string> PostLogoutRedirectUris { get; set; }
-        public bool PrefixClientClaims { get; set; } = true;
-        public string ProtocolType { get; set; } = ProtocolTypes.OpenIdConnect;
-        public List<string> RedirectUris { get; set; }
+        public bool enableLocalLogin { get; set; } = true;
+        public List<string> identityProviderRestrictions { get; set; }
+        public int identityTokenLifetime { get; set; } = 300;
+        public bool includeJwtId { get; set; }
+        public string logoUri { get; set; }
+        public bool logoutSessionRequired { get; set; } = true;
+        public string logoutUri { get; set; }
+        public List<string> postLogoutRedirectUris { get; set; }
+        public bool prefixClientClaims { get; set; } = true;
+        public string protocolType { get; set; } = ProtocolTypes.OpenIdConnect;
+        public List<string> redirectUris { get; set; }
         public int RefreshTokenExpiration { get; set; } = (int)TokenExpiration.Absolute;
-        public int RefreshTokenUsage { get; set; } = (int)TokenUsage.OneTimeOnly;
-        public bool RequireClientSecret { get; set; } = true;
-        public bool RequireConsent { get; set; } = true;
-        public bool RequirePkce { get; set; }
-        public int SlidingRefreshTokenLifetime { get; set; } = 1296000;
-        public bool UpdateAccessTokenClaimsOnRefresh { get; set; }
+        public int refreshTokenUsage { get; set; } = (int)TokenUsage.OneTimeOnly;
+        public bool requireClientSecret { get; set; } = true;
+        public bool requireConsent { get; set; } = true;
+        public bool requirePkce { get; set; }
+        public int slidingRefreshTokenLifetime { get; set; } = 1296000;
+        public bool updateAccessTokenClaimsOnRefresh { get; set; }
     }
 }
