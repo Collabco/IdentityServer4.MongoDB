@@ -120,7 +120,7 @@ namespace IdentityServer4.MongoDB
                 RequirePkce = client.requirePkce,
                 RequireConsent = client.requirePkce,
                 RedirectUris = client.redirectUris,
-                RefreshTokenExpiration = (TokenExpiration)client.RefreshTokenExpiration,
+                RefreshTokenExpiration = (TokenExpiration)client.refreshTokenExpiration,
                 RefreshTokenUsage = (TokenUsage)client.refreshTokenUsage,
                 RequireClientSecret = client.requireClientSecret                
             };
