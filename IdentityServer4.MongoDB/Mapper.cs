@@ -61,7 +61,7 @@ namespace IdentityServer4.MongoDB
                 requirePkce = client.RequirePkce,
                 requireConsent = client.RequirePkce,
                 redirectUris = client.RedirectUris?.ToList(),
-                RefreshTokenExpiration = (int)client.RefreshTokenExpiration,
+                refreshTokenExpiration = (int)client.RefreshTokenExpiration,
                 refreshTokenUsage = (int)client.RefreshTokenUsage,
                 requireClientSecret = client.RequireClientSecret
             };
