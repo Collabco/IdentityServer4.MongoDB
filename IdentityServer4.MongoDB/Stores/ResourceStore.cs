@@ -19,7 +19,7 @@ namespace IdentityServer4.MongoDB.Stores
 
         public async Task<ApiResource> FindApiResourceAsync(string name)
         {
-            var filter = Builders<Models.ApiResource>.Filter.Eq(u => u.Name, name);
+            var filter = Builders<Models.ApiResource>.Filter.Eq(u => u.name, name);
 
             var found = await _dbContext.ApiResource.Find(filter).SingleOrDefaultAsync();
 
@@ -40,7 +40,7 @@ namespace IdentityServer4.MongoDB.Stores
              */
 
             var records = await _dbContext.ApiResource
-                .Find( u=> u.Scopes.Any( s => names.Contains(s.Name)))
+                .Find( u=> u.scopes.Any( s => names.Contains(s.name)))
                 .ToListAsync();
 
             return records.Select(Mapper.ToModel)
@@ -49,7 +49,7 @@ namespace IdentityServer4.MongoDB.Stores
 
         public async Task<IEnumerable<IdentityResource>> FindIdentityResourcesByScopeAsync(IEnumerable<string> scopeNames)
         {
-            var filter = Builders<Models.IdentityResource>.Filter.In(p => p.Name, scopeNames);
+            var filter = Builders<Models.IdentityResource>.Filter.In(p => p.name, scopeNames);
 
             var records = await _dbContext.IdentityResource.Find(filter).ToListAsync();
 

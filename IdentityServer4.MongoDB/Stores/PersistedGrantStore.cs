@@ -19,7 +19,7 @@ namespace IdentityServer4.MongoDB.Stores
 
         public async Task<IEnumerable<PersistedGrant>> GetAllAsync(string subjectId)
         {
-            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.SubjectId, subjectId);
+            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.subjectId, subjectId);
 
             var records = await _dbContext.PersistedGrant.Find(filter).ToListAsync();
 
@@ -28,7 +28,7 @@ namespace IdentityServer4.MongoDB.Stores
 
         public async Task<PersistedGrant> GetAsync(string key)
         {
-            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.Key, key);
+            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.key, key);
 
             var record = await _dbContext.PersistedGrant.Find(filter).FirstOrDefaultAsync();
 
@@ -43,8 +43,8 @@ namespace IdentityServer4.MongoDB.Stores
         public Task RemoveAllAsync(string subjectId, string clientId)
         {
             var filter = Builders<Models.PersistedGrant>.Filter.And(
-                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.SubjectId, subjectId),
-                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.ClientId, clientId)
+                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.subjectId, subjectId),
+                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.clientId, clientId)
             );
 
             return _dbContext.PersistedGrant.DeleteManyAsync(filter);
@@ -53,9 +53,9 @@ namespace IdentityServer4.MongoDB.Stores
         public Task RemoveAllAsync(string subjectId, string clientId, string type)
         {
             var filter = Builders<Models.PersistedGrant>.Filter.And(
-                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.SubjectId, subjectId),
-                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.ClientId, clientId),
-                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.Type, type)
+                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.subjectId, subjectId),
+                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.clientId, clientId),
+                    Builders<Models.PersistedGrant>.Filter.Eq(u => u.type, type)
             );
 
             return _dbContext.PersistedGrant.DeleteManyAsync(filter);
@@ -63,14 +63,14 @@ namespace IdentityServer4.MongoDB.Stores
 
         public Task RemoveAsync(string key)
         {
-            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.Key, key);
+            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.key, key);
 
             return _dbContext.PersistedGrant.DeleteManyAsync(filter);
         }
 
         public async Task StoreAsync(PersistedGrant grant)
         {
-            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.Key, grant.Key);
+            var filter = Builders<Models.PersistedGrant>.Filter.Eq(u => u.key, grant.Key);
 
             var existing = await _dbContext.PersistedGrant.Find(filter).SingleOrDefaultAsync();
             if (existing == null)
@@ -87,13 +87,13 @@ namespace IdentityServer4.MongoDB.Stores
         {
             return new PersistedGrant
             {
-                ClientId = grant.ClientId,
-                CreationTime = grant.CreationTime,
-                Data = grant.Data,
-                Expiration = grant.Expiration,
-                Key = grant.Key,
-                SubjectId = grant.SubjectId,
-                Type = grant.Type
+                ClientId = grant.clientId,
+                CreationTime = grant.creationTime,
+                Data = grant.data,
+                Expiration = grant.expiration,
+                Key = grant.key,
+                SubjectId = grant.subjectId,
+                Type = grant.type
             };
         }
 
@@ -102,13 +102,13 @@ namespace IdentityServer4.MongoDB.Stores
             if (existing == null)
                 existing = new Models.PersistedGrant();
 
-            existing.ClientId = grant.ClientId;
-            existing.CreationTime = grant.CreationTime;
-            existing.Data = grant.Data;
-            existing.Expiration = grant.Expiration;
-            existing.Key = grant.Key;
-            existing.SubjectId = grant.SubjectId;
-            existing.Type = grant.Type;
+            existing.clientId = grant.ClientId;
+            existing.creationTime = grant.CreationTime;
+            existing.data = grant.Data;
+            existing.expiration = grant.Expiration;
+            existing.key = grant.Key;
+            existing.subjectId = grant.SubjectId;
+            existing.type = grant.Type;
 
             return existing;
         }

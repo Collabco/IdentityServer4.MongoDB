@@ -13,19 +13,19 @@ namespace IdentityServer4.MongoDB.Models
 
         public ApiResource(string name, string displayName, IEnumerable<string> claimTypes)
         {
-            Name = name;
-            DisplayName = displayName;
-            UserClaims = claimTypes.ToList();
+            this.name = name;
+            this.displayName = displayName;
+            userClaims = claimTypes.ToList();
         }
 
-        public string Description { get; set; }
-        public string DisplayName { get; set; }
-        public bool Enabled { get; set; } = true;
+        public string description { get; set; }
+        public string displayName { get; set; }
+        public bool enabled { get; set; } = true;
 
         [BsonId]
-        public string Name { get; set; }
-        public List<ApiScope> Scopes { get; set; }
-        public List<ApiSecret> Secrets { get; set; }
-        public List<string> UserClaims { get; set; }
+        public string name { get; set; }
+        public List<ApiScope> scopes { get; set; }
+        public List<ApiSecret> secrets { get; set; }
+        public List<string> userClaims { get; set; }
     }
 }
