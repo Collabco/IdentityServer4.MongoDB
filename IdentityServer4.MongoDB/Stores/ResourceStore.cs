@@ -28,22 +28,15 @@ namespace IdentityServer4.MongoDB.Stores
 
         public async Task<IEnumerable<ApiResource>> FindApiResourcesByScopeAsync(IEnumerable<string> scopeNames)
         {
-            var names = scopeNames.ToArray();
-            /*
-            var apis =
-                from api in _dbContext.ApiResource.AsQueryable()
-                where api.Scopes.Where(x => names.Contains(x.Name)).Any()
-                select api;
-             or this?   
-
-            var filter = Builders<ApiResource>.Filter.Where(p => p.Scopes.Any(b => scopeNames.Contains(b.Name)));
-             */
+            var names = scopeNames.ToArray();                  
+            var filter = Builders<Models.ApiResource>.Filter.ElemMatch(t => t.scopes, b => names.Contains(b.name));
 
             var records = await _dbContext.ApiResource
-                .Find( u=> u.scopes.Any( s => names.Contains(s.name)))
+                .Find(filter)
                 .ToListAsync();
 
-            return records.Select(Mapper.ToModel)
+            return records
+                .Select(Mapper.ToModel)
                 .ToList();
         }
 
