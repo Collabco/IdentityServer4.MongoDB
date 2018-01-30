@@ -6,10 +6,10 @@ namespace  IdentityServer4.MongoDB.Models
 {
     public abstract class Secret
     {
-        public ObjectId Id { get; set; }
-        public string Description { get; set; }
-        public string Value { get; set; }
-        public DateTime? Expiration { get; set; }
-        public string Type { get; set; } = SecretTypes.SharedSecret;
+        public ObjectId id { get; set; }
+        public string description { get; set; }
+        public string value { get; set; }
+        public DateTime? expiration { get; set; }
+        public string type { get; set; } = SecretTypes.SharedSecret;
     }
 }

@@ -17,7 +17,7 @@ namespace IdentityServer4.MongoDB.Stores
 
         public async Task<Client> FindClientByIdAsync(string clientId)
         {
-            var filter = Builders<Models.Client>.Filter.Eq(u => u.ClientId, clientId);
+            var filter = Builders<Models.Client>.Filter.Eq(u => u.clientId, clientId);
             var client = await _dbContext.Client.Find(filter).SingleOrDefaultAsync();
             return client?.ToModel();
         }

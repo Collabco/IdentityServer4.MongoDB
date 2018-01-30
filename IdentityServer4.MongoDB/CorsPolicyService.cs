@@ -16,7 +16,7 @@ namespace IdentityServer4.MongoDB
 
         public async Task<bool> IsOriginAllowedAsync(string origin)
         {
-            var records = await _dbContext.Client.FindAsync(u => u.AllowedCorsOrigins.Contains(origin));
+            var records = await _dbContext.Client.FindAsync(u => u.allowedCorsOrigins.Contains(origin));
             return records.FirstOrDefault() != null;
         }
     }

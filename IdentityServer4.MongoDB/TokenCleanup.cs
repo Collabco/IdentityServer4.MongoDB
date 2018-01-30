@@ -55,7 +55,7 @@ namespace IdentityServer4.MongoDB
                 {
                     var dbContext = serviceScope.ServiceProvider.GetService<IOperationDbContext>();
 
-                    var filter = Builders<Models.PersistedGrant>.Filter.Lt(x => x.Expiration, DateTime.UtcNow);
+                    var filter = Builders<Models.PersistedGrant>.Filter.Lt(x => x.expiration, DateTime.UtcNow);
 
                     var expired = await dbContext.PersistedGrant.Find(filter).CountAsync();
 
