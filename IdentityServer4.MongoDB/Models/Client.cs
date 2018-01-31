@@ -6,6 +6,7 @@ using static IdentityServer4.IdentityServerConstants;
 
 namespace IdentityServer4.MongoDB.Models
 {
+    [BsonIgnoreExtraElements]
     public class Client : ConfigObject
     {
         public Client()

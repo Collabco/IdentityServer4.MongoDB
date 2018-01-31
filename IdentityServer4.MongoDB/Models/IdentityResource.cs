@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace IdentityServer4.MongoDB.Models
 {
+    [BsonIgnoreExtraElements]
     public class IdentityResource : ConfigObject
     {
         public IdentityResource()
