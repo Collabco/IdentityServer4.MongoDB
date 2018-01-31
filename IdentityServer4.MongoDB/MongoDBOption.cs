@@ -4,17 +4,17 @@ namespace IdentityServer4.MongoDB
     {
         public Option ApiResource { get; set; } = new Option
         {
-            CollectionName = "ApiResource",
+            CollectionName = "Configuration"
         };
 
         public Option Client { get; set; } = new Option
         {
-            CollectionName = "Client",
+            CollectionName = "Configuration"
         };
 
         public Option IdentityResource { get; set; } = new Option
         {
-            CollectionName = "IdentityResource",
+            CollectionName = "Configuration"
         };
     }
 

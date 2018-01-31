@@ -7,6 +7,7 @@ using System.Text;
 namespace IdentityServer4.MongoDB.Models
 {
     [BsonKnownTypes(typeof(Client), typeof(ApiResource), typeof(IdentityResource))]
+    [BsonIgnoreExtraElements]
     public class ConfigObject
     {
         public ConfigObject()
