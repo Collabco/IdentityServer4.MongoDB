@@ -45,7 +45,7 @@ namespace IdentityServer4.MongoDB.Models
         public bool prefixClientClaims { get; set; } = true;
         public string protocolType { get; set; } = ProtocolTypes.OpenIdConnect;
         public List<string> redirectUris { get; set; }
-        public int refreshTokenExpiration { get; set; } = (int)TokenExpiration.Absolute;
+        public int RefreshTokenExpiration { get; set; } = (int)TokenExpiration.Absolute;
         public int refreshTokenUsage { get; set; } = (int)TokenUsage.OneTimeOnly;
         public bool requireClientSecret { get; set; } = true;
         public bool requireConsent { get; set; } = true;
