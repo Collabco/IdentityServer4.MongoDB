@@ -125,12 +125,12 @@ namespace IdentityServer4.MongoDB
                 RefreshTokenExpiration = (TokenExpiration)client.RefreshTokenExpiration,
                 RefreshTokenUsage = (TokenUsage)client.RefreshTokenUsage,
                 RequireClientSecret = client.RequireClientSecret,
-                BackChannelLogoutSessionRequired = client.BackChannelLogoutSessionRequired,
-                BackChannelLogoutUri = client.BackChannelLogoutUri,
-                ClientClaimsPrefix = client.ClientClaimsPrefix,
+                BackChannelLogoutSessionRequired = client.BackChannelLogoutSessionRequired ?? client.DefaultLogoutSessionRequired, //Handle conversion from .net core 11 version
+                BackChannelLogoutUri = client.BackChannelLogoutUri ?? client.DefaultLogoutUri,
+                ClientClaimsPrefix = client.ClientClaimsPrefix ?? (client.PrefixClientClaims ? client.ClientClaimsPrefix ?? "client_" : null), //Handle conversion from .net core 11 version
                 ConsentLifetime = client.ConsentLifetime,
-                FrontChannelLogoutSessionRequired = client.FrontChannelLogoutSessionRequired,
-                FrontChannelLogoutUri = client.FrontChannelLogoutUri,
+                FrontChannelLogoutSessionRequired = client.FrontChannelLogoutSessionRequired ?? client.DefaultLogoutSessionRequired, //Handle conversion from .net core 11 version
+                FrontChannelLogoutUri = client.FrontChannelLogoutUri ?? client.DefaultLogoutUri,
                 PairWiseSubjectSalt = client.PairWiseSubjectSalt,
                 Properties = client.Properties
             };
