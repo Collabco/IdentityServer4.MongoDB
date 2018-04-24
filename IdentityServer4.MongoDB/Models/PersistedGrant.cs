@@ -5,13 +5,13 @@ namespace  IdentityServer4.MongoDB.Models
 {
     public class PersistedGrant
     {
-        public ObjectId id { get; set; }
-        public string key { get; set; }
-        public string type { get; set; }
-        public string subjectId { get; set; }
-        public string clientId { get; set; }
-        public DateTime creationTime { get; set; }
-        public DateTime? expiration { get; set; }
-        public string data { get; set; }
+        public ObjectId Id { get; set; }
+        public string Key { get; set; }
+        public string Type { get; set; }
+        public string SubjectId { get; set; }
+        public string ClientId { get; set; }
+        public DateTime CreationTime { get; set; }
+        public DateTime? Expiration { get; set; }
+        public string Data { get; set; }
     }
 }
