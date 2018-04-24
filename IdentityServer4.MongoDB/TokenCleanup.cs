@@ -69,7 +69,7 @@ namespace IdentityServer4.MongoDB
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Exception cleaning tokens ${ex.Message}");
+                _logger.LogError(ex, $"Exception cleaning tokens ${ex.Message}");
             }
         }
 
