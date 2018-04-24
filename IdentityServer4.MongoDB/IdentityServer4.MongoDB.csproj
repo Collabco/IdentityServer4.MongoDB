@@ -14,9 +14,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityServer4" Version="2.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
-    <PackageReference Include="MongoDB.Bson" Version="2.5.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
+    <PackageReference Include="IdentityServer4" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.5.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.5.1" />
   </ItemGroup>
 </Project>
