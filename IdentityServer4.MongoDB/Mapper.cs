@@ -208,7 +208,7 @@ namespace IdentityServer4.MongoDB
                                 {
                                     Type = c.Type
                                 })
-                                .ToList(),
+                                .ToList() ?? new List<Secret>(),
                 Enabled = model.Enabled,
                 Description = model.Description,
                 Scopes = model.Scopes?
@@ -218,14 +218,14 @@ namespace IdentityServer4.MongoDB
                                 DisplayName = c.DisplayName,
                                 Emphasize = c.Emphasize,
                                 Name = c.Name,
-                                UserClaims = c.UserClaims,
+                                UserClaims = c.UserClaims ?? new List<string>(),
                                 Required = c.Required,
                                 ShowInDiscoveryDocument = c.ShowInDiscoveryDocument,
                             })
-                            .ToList(),
+                            .ToList() ?? new List<Scope>(),
                 DisplayName = model.DisplayName,
                 Name = model.Name,
-                UserClaims = model.UserClaims
+                UserClaims = model.UserClaims ?? new List<string>()
             };
         }
 
@@ -243,7 +243,7 @@ namespace IdentityServer4.MongoDB
                 Required = model.Required,
                 Emphasize = model.Emphasize,
                 ShowInDiscoveryDocument = model.ShowInDiscoveryDocument,
-                UserClaims = model.UserClaims,
+                UserClaims = model.UserClaims ?? new List<string>(),
                 Name = model.Name,
                 DisplayName = model.DisplayName
             };
