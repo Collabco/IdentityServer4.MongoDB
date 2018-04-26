@@ -18,7 +18,7 @@ namespace IdentityServer4.MongoDB
             return new Models.Client
             {
                 AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
-                AccessTokenLifetime = client.AbsoluteRefreshTokenLifetime,
+                AccessTokenLifetime = client.AccessTokenLifetime,
                 AccessTokenType = (int)client.AccessTokenType,
                 AllowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
                 AllowedCorsOrigins = client.AllowedCorsOrigins?.ToList(),
@@ -82,7 +82,7 @@ namespace IdentityServer4.MongoDB
             return new Client
             {
                 AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
-                AccessTokenLifetime = client.AbsoluteRefreshTokenLifetime,
+                AccessTokenLifetime = client.AccessTokenLifetime,
                 AccessTokenType = (AccessTokenType)client.AccessTokenType,
                 AllowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
                 AllowedCorsOrigins = client.AllowedCorsOrigins,
