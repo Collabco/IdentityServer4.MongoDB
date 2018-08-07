@@ -16,13 +16,8 @@ namespace Integration.Tests
         [TestMethod]
         public async Task TestBackwardsCompatability()
         {
-            var op = new ConfigurationDBOption { ConnectionString = "mongodb://**:**@0.0.0.0:27017?authSource=admin", Database = "IdentityServer4" };
-            op.ApiResource.CollectionName = "Configuration";
-            op.Client.CollectionName = "Configuration";
-            op.IdentityResource.CollectionName = "Configuration";
-            var ops = Microsoft.Extensions.Options.Options.Create(op);
-            var context = new ConfigurationMongoDbContext(ops);
-            
+            var context = GetConfigContext();
+
             var clientStore = new ClientStore(context);
             var client1 = await clientStore.FindClientByIdAsync("myday-web-c5da2136-7b39-4def-b6e0-1574595c71f6");
             var client2 = await clientStore.FindClientByIdAsync("scim-c5da2136-7b39-4def-b6e0-1574595c71f6");
@@ -40,12 +35,7 @@ namespace Integration.Tests
         [TestMethod]
         public async Task TestCreate()
         {
-            var op = new ConfigurationDBOption { ConnectionString = "mongodb://**:**@0.0.0.0:27017?authSource=admin", Database = "IS4" };
-            op.ApiResource.CollectionName = "Configuration";
-            op.Client.CollectionName = "Configuration";
-            op.IdentityResource.CollectionName = "Configuration";
-            var ops = Microsoft.Extensions.Options.Options.Create(op);
-            var context = new ConfigurationMongoDbContext(ops);
+            var context = GetConfigContext();
 
             var clientCreate1 = Mapper.ToEntity(new IdentityServer4.Models.Client
             {
@@ -71,11 +61,11 @@ namespace Integration.Tests
             });
 
             try
-            {              
+            {
                 await context.Client.InsertOneAsync(clientCreate1);
                 await context.Client.InsertOneAsync(clientCreate2);
                 await context.ApiResource.InsertOneAsync(apiCreate1);
-                var clientStore = new ClientStore(context);                
+                var clientStore = new ClientStore(context);
                 var client1 = await clientStore.FindClientByIdAsync("Client1");
                 Assert.IsNotNull(client1?.ClientId);
                 Assert.AreEqual("Client1", client1.ClientId);
@@ -102,6 +92,26 @@ namespace Integration.Tests
                 }
                 catch { }
             }
+        }
+
+        private ConfigurationMongoDbContext GetConfigContext()
+        {
+            var op = new ConfigurationDBOption { ConnectionString = "mongodb://**:**@0.0.0.0:27017?authSource=admin", Database = "IS4" };
+            op.ApiResource.CollectionName = "Configuration";
+            op.Client.CollectionName = "Configuration";
+            op.IdentityResource.CollectionName = "Configuration";
+
+            var ops = Microsoft.Extensions.Options.Options.Create(op);
+            return new ConfigurationMongoDbContext(ops);
+        }
+
+        private OperationDbContext GetOperationContext()
+        {
+            var op = new OperationMongoDBOption { ConnectionString = "mongodb://**:**@0.0.0.0:27017?authSource=admin", Database = "IS4" };            
+            op.PersistedGrant.CollectionName = "PersistedGrant";
+
+            var ops = Microsoft.Extensions.Options.Options.Create(op);
+            return new OperationDbContext(ops);
         }
     }
 }
