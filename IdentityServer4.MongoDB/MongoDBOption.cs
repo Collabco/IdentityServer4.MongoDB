@@ -1,3 +1,5 @@
+using MongoDB.Driver;
+
 namespace IdentityServer4.MongoDB
 {
     public class ConfigurationDBOption : MongoDBOptionBase
@@ -20,7 +22,17 @@ namespace IdentityServer4.MongoDB
 
     public abstract class MongoDBOptionBase
     {
+        /// <summary>
+        /// Client settings for connecting to mongodb
+        /// </summary>
+        /// <remarks>Setting this overrides use of the connection string</remarks>
+        public MongoClientSettings MongoClientSettings { get; set; }
+
+        /// <summary>
+        /// Connection string for connecting to mongodb
+        /// </summary>       
         public string ConnectionString { get; set; }
+
         public string Database { get; set; }
     }
 

@@ -20,7 +20,7 @@ namespace IdentityServer4.MongoDB
     {
         public ConfigurationMongoDbContext(IOptions<ConfigurationDBOption> option)
         {
-            var client = new MongoClient(option.Value.ConnectionString);
+            var client = option.Value.MongoClientSettings != null ? new MongoClient(option.Value.MongoClientSettings) : new MongoClient(option.Value.ConnectionString);
             var database = client.GetDatabase(option.Value.Database);
 
             Client = database.GetCollection<ConfigObject>(option.Value.Client.CollectionName).OfType<Client>();
@@ -37,7 +37,7 @@ namespace IdentityServer4.MongoDB
     {
         public OperationDbContext(IOptions<OperationMongoDBOption> option)
         {
-            var client = new MongoClient(option.Value.ConnectionString);
+            var client = option.Value.MongoClientSettings != null ? new MongoClient(option.Value.MongoClientSettings) : new MongoClient(option.Value.ConnectionString);
             var database = client.GetDatabase(option.Value.Database);
 
             PersistedGrant = database.GetCollection<PersistedGrant>(option.Value.PersistedGrant.CollectionName);
